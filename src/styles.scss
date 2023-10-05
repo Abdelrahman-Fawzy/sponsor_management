@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+body {
+    font-family: "Poppins", "Cairo", sans-serif;
+    background: #F2F8FF;
+}
+
+.sponsors-list {
+    .p-datatable-wrapper {
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    }
+    .p-datatable-table {
+        border-spacing: 0 3px;
+        border-collapse: separate;
+    }
+
+    .p-datatable .p-datatable-thead>tr>th {
+        // border-top: 1px solid #EEF2F7;
+        // border-bottom: 1px solid #EEF2F7;
+        font-weight: 400;
+        color: #374D67;
+        background: #F7F9FC;
+        font-size: 14px;
+    }
+
+    .p-datatable .p-datatable-tbody>tr>td {
+        padding: 7px;
+        color: #657586;
+        font-weight: 400;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px #ddd;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b2d2ff;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #005fe3;
+}

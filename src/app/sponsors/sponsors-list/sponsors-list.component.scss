@@ -1,0 +1,17 @@
+.sponsors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    height: 100vh;
+    border-radius: 4.499px;
+    padding: 2em;
+    .header {
+        button.primary-button {
+            background-color: #3B9CDE;
+            border: none;
+            border-radius: 6px;
+            color: #FFF;
+            padding: 10px 15px;
+        }
+    }
+}

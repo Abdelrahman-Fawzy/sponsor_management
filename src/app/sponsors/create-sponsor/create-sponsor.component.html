@@ -1,0 +1,224 @@
+<div class="create-sponser">
+    <div class="header">
+        <div class="back-step" routerLink="/">
+            <img src="assets/Vector.svg" alt="vector">
+            <span>Back To List</span>
+        </div>
+        <h3 class="title">Sponsor Information</h3>
+    </div>
+    <div class="form-box">
+        <form [formGroup]="sponsorFormGroup">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="name">Sponsor Name</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['sponsor_name']?.errors}" type="text" class="form-control" id="name" formControlName="sponsor_name">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('sponsor_name')"
+                            [formSubmitted]="formSubmitted"
+                        ></app-input-error>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="type">Sponsor Type</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['sponsor_type']?.errors}" type="text" class="form-control" id="type" formControlName="sponsor_type">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('sponsor_type')"
+                            [formSubmitted]="formSubmitted"
+                        ></app-input-error>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="ID">Sponsor ID</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['sponsor_ID']?.errors}" type="text" class="form-control" id="ID" formControlName="sponsor_ID">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('sponsor_ID')"
+                            [formSubmitted]="formSubmitted"
+                            [customMsg]="{ minLength: 'رقم الهوية 12 رقم', maxLength: 'رقم الهوية 12 رقم' }"
+                        ></app-input-error>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['phone']?.errors}" type="text" class="form-control" id="phone" formControlName="phone">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('phone')"
+                            [formSubmitted]="formSubmitted"
+                            [customMsg]="{ 
+                                minLength: 'الحد الأدنى 10 أرقام', 
+                                maxLength: 'الحد الأقصى 15 رقم',
+                                pattern: 'هذا الحقل يجب أن يحتور علي أرقام فقط'
+                            }"
+                        ></app-input-error>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['address']?.errors}" type="text" class="form-control" id="address" formControlName="address">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('address')"
+                            [formSubmitted]="formSubmitted"
+                        ></app-input-error>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['email']?.errors}" type="email" class="form-control" id="email" formControlName="email">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('email')"
+                            [formSubmitted]="formSubmitted"
+                        ></app-input-error>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="code">Postal Code</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['postal_code']?.errors}" type="text" class="form-control" id="code" formControlName="postal_code">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('postal_code')"
+                            [formSubmitted]="formSubmitted"
+                        ></app-input-error>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="maxLimit">Max Limit</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['max_limit']?.errors}" type="text" class="form-control" id="maxLimit" formControlName="max_limit">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('max_limit')"
+                            [formSubmitted]="formSubmitted"
+                        ></app-input-error>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="financialLimit">Financial Limit</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['financial_limit']?.errors}" type="text" class="form-control" id="financialLimit" formControlName="financial_limit">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('financial_limit')"
+                            [formSubmitted]="formSubmitted"
+                        ></app-input-error>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="timeLimit">Time Limit</label>
+                        <input [ngClass]="{errorInput: formSubmitted && !formValid && f['time_limit']?.errors}" type="text" class="form-control" id="timeLimit" formControlName="time_limit">
+                        <app-input-error
+                            [control]="sponsorFormGroup.get('time_limit')"
+                            [formSubmitted]="formSubmitted"
+                        ></app-input-error>
+                    </div>
+                </div>
+            </div>
+            <div class="sponser-contact-officer">
+                <div class="add-officer-button">
+                    <button class="transparent-button" (click)="openModal(template)">+ Add New</button>
+                </div>
+                <ng-template #template>
+                    <div class="modal-header">
+                        <h4 class="modal-title pull-left">Add New Officer</h4>
+                        <button type="button" class="close btn-close pull-right" aria-label="Close"
+                            (click)="modalRef?.hide()">
+                            <span aria-hidden="true" class="visually-hidden">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="sponsorOfficersFormGroup">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="officer_name">Contact Officer Name</label>
+                                        <input 
+                                        [ngClass]="{errorInput: officersFormSubmitted && !officersFormValid && oform['contact_officer_name']?.errors}" 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="officer_name"
+                                        formControlName="contact_officer_name">
+                                        <app-input-error
+                                            [control]="sponsorOfficersFormGroup.get('contact_officer_name')"
+                                            [formSubmitted]="officersFormSubmitted"
+                                        ></app-input-error>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input 
+                                        [ngClass]="{errorInput: officersFormSubmitted && !officersFormValid && oform['email']?.errors}" 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="email"
+                                        formControlName="email">
+                                        <app-input-error
+                                            [control]="sponsorOfficersFormGroup.get('email')"
+                                            [formSubmitted]="officersFormSubmitted"
+                                        ></app-input-error>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input 
+                                        [ngClass]="{errorInput: officersFormSubmitted && !officersFormValid && oform['phone']?.errors}" 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="phone"
+                                        formControlName="phone">
+                                        <app-input-error
+                                            [control]="sponsorOfficersFormGroup.get('phone')"
+                                            [formSubmitted]="officersFormSubmitted"
+                                            [customMsg]="{ 
+                                                minLength: 'الحد الأدنى 10 أرقام', 
+                                                maxLength: 'الحد الأقصى 15 رقم',
+                                                pattern: 'هذا الحقل يجب أن يحتور علي أرقام فقط'
+                                            }"
+                                        ></app-input-error>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <button type="btn" class="primary-button" (click)="saveOfficersForm()">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </ng-template>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <th>Contact Officer Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngIf="sponsorsOfficers.length > 0">
+                                <tr *ngFor="let officer of sponsorsOfficers;let i = index">
+                                    <td>{{officer.contact_officer_name}}</td>
+                                    <td>{{officer.email}}</td>
+                                    <td>{{officer.phone}}</td>
+                                    <td>
+                                        <button class="transparent-button" (click)="deleteOfficer(i)">
+                                            <img src="assets/trash-red.svg" alt="">
+                                        </button>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                            <tr *ngIf="sponsorsOfficers.length == 0">
+                                <td colspan="4">There Is No Data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="actions">
+                <button (click)="save()" type="btn" class="primary-button">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

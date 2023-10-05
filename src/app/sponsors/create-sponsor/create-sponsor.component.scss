@@ -1,0 +1,140 @@
+.create-sponser {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .back-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            span {
+                color: #3b9cde;
+            }
+        }
+    }
+    .form-box {
+        background: #fff;
+        padding: 2em;
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+        border-radius: 11px;
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            .form-group { 
+                margin-bottom: 1em;
+            }
+            label {
+                color: #364255;
+                font-size: 14px;
+            }
+            .form-control {
+                border-radius: 0;
+                border: none;
+                border-bottom: 1px solid #ddd;
+                box-shadow: none;
+                &.errorInput {
+                    border-color: red;
+                }
+            }
+            .sponser-contact-officer {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                .add-officer-button {
+                    button {
+                        background: transparent;
+                        border: none;
+                        color: #3b9cde;
+                    }
+                }
+                table {
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0 10px;
+                    th {
+                        background: #F7F9FC;
+                        padding: 10px;
+                        font-weight: 400;
+                        border-top: 1px solid #ddd;
+                        border-bottom: 1px solid #ddd;
+                        text-align: center;
+                    }
+                    td {
+                        text-align: center;
+                        border-top: 1px solid #ddd;
+                        border-bottom: 1px solid #ddd;
+                        padding: 10px;
+                        &:first-child {
+                            border-left: 1px solid #ddd;
+                        }
+                        &:last-child {
+                            border-right: 1px solid #ddd;
+                        }
+                    }
+                }
+            }
+            .actions {
+                display: flex;
+                justify-content: flex-end;
+                button.primary-button {
+                    border: none;
+                    padding: 10px 35px;
+                    border-radius: 7px;
+                    color: #fff;
+                    background-color: #3B9CDE;
+                }
+            }
+        }
+    }
+}
+
+.modal-header {
+    border: none;
+    h4 {
+        font-size: 16px;
+    }
+}
+
+.modal-body {
+    form {
+        padding: 1em;
+        .form-group { 
+            margin-bottom: 1em;
+        }
+        label {
+            color: #364255;
+            font-size: 14px;
+        }
+        .form-control {
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            box-shadow: none;
+            &.errorInput {
+                border-color: red;
+            }
+        }
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            button.primary-button {
+                border: none;
+                padding: 10px 35px;
+                border-radius: 7px;
+                color: #fff;
+                background-color: #3B9CDE;
+            }
+        }
+    }
+}
+
+.transparent-button {
+    background: transparent;
+    border: none;
+}

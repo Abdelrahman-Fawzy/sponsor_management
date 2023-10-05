@@ -1,0 +1,96 @@
+
+<div class="sponsors-list" *ngIf="sponsorsList">
+    <div class="header d-flex align-items-center justify-content-between">
+        <h3 class="title">All Sponsors</h3>
+        <button class="primary-button" routerLink="/create">+ Add Sponsor</button>
+    </div>
+    <p-table [value]="sponsorsList.data" dataKey="sponsor_name" [tableStyle]="{ 'min-width': '200rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 5rem"></th>
+                <th>Id</th>
+                <th>Sponsor Code</th>
+                <th>Sponsor Name</th>
+                <th>Sponsor Type</th>
+                <th>Sponsor ID</th>
+                <th>Address</th>
+                <th>Postal Code</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Max Limit</th>
+                <th>Financial Limit</th>
+                <th>Time Limit</th>
+                <th>Active</th>
+                <th>Created By</th>
+                <th>Updated By</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Created By Name</th>
+                <th>Updated By Name</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sponsor let-expanded="expanded">
+            <tr>
+                <td>
+                    <button type="button" pButton pRipple [pRowToggler]="sponsor" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                </td>
+                <td>{{ sponsor.id }}</td>
+                <td>{{ sponsor.sponsor_code }}</td>
+                <td>{{ sponsor.sponsor_name }}</td>
+                <td>{{ sponsor.sponsor_type }}</td>
+                <td>{{ sponsor.sponsor_ID }}</td>
+                <td>{{ sponsor.address }}</td>
+                <td>{{ sponsor.postal_code }}</td>
+                <td>{{ sponsor.phone }}</td>
+                <td>{{ sponsor.email }}</td>
+                <td>{{ sponsor.max_limit }}</td>
+                <td>{{ sponsor.financial_limit }}</td>
+                <td>{{ sponsor.time_limit }}</td>
+                <td>{{ sponsor.active }}</td>
+                <td>{{ sponsor.created_by }}</td>
+                <td>{{ sponsor.updated_by }}</td>
+                <td>{{ sponsor.created_at | date:'dd MMM yyyy h:mm a' }}</td>
+                <td>{{ sponsor.updated_at | date:'dd MMM yyyy h:mm a' }}</td>
+                <td>{{ sponsor.created_by_name }}</td>
+                <td>{{ sponsor.updated_by_name }}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-sponsor>
+            <tr>
+                <td colspan="20">
+                    <div class="p-3">
+                        <p-table [value]="sponsor.contact_officers" dataKey="sponsor_id">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Sponsor ID</th>
+                                    <th>Contact Officer Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Created at</th>
+                                    <th>Updated at</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-officer>
+                                <tr>
+                                    <td>{{ officer.id }}</td>
+                                    <td>{{ officer.sponsor_id }}</td>
+                                    <td>{{ officer.contact_officer_name }}</td>
+                                    <td>{{ officer.phone }}</td>
+                                    <td>{{ officer.email }}</td>
+                                    <td>{{ officer.created_at | date:'dd MMM yyyy h:mm a'  }}</td>
+                                    <td>{{ officer.updated_at | date:'dd MMM yyyy h:mm a'  }}</td>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="emptymessage">
+                                <tr>
+                                    <td colspan="7">There are no order for this product yet.</td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

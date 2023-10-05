@@ -1,0 +1,13 @@
+<ng-container *ngIf="(control?.invalid && control?.dirty && control?.touched) || (formSubmitted && control?.invalid)">
+    <ng-container *ngFor="let error of errors">
+        <div class="errors">
+            <small *ngIf="error === 'required'" class="p-error">هذا الحقل مطلوب</small>
+            <small *ngIf="error === 'email' || error === 'invalidEmail'" class="p-error"> الايميل غير صحيح </small>
+            <small *ngIf="error === 'min'" class="p-error"> {{customMsg?.min}}</small>
+            <small *ngIf="error === 'max'" class="p-error"> {{customMsg?.max}}</small>
+            <small *ngIf="error === 'maxlength'" class="p-error"> {{ customMsg?.maxLength }}</small>
+            <small *ngIf="error === 'minlength'" class="p-error"> {{ customMsg?.minLength }}</small>
+            <small *ngIf="error === 'pattern'" class="p-error"> {{ customMsg?.pattern }}</small>
+        </div>
+    </ng-container>
+</ng-container>
