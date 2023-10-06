@@ -28,6 +28,7 @@ export class CreateSponsorComponent implements OnInit {
   officersFormSubmitted: boolean = false
   officersFormValid: boolean = false
   sponsorsOfficers: SponsorContactOfficer[] = []
+  sponsorsList: any[] = []
 
   constructor(
     private modalService: BsModalService,
@@ -39,10 +40,18 @@ export class CreateSponsorComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm()
+    this.getSponsorsList()
   }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, this.config);
+  }
+
+  getSponsorsList() {
+    this.sponsorService.getSponsorsList().subscribe(sponsors => {
+      this.sponsorsList = sponsors.data as any
+      console.log(this.sponsorsList);
+    })
   }
 
   createForm() {
@@ -77,12 +86,40 @@ export class CreateSponsorComponent implements OnInit {
   }
 
   validateOfficersForm() {
+    let emailIndex
+    for (const item of this.sponsorsList) {
+      console.log(`item`, item);
+      emailIndex = item.contact_officers.findIndex((x: any) => {
+        return x.email === this.sponsorsOfficersValues.email
+      })
+      if (emailIndex !== -1 ) break;
+    }
+    
+    let phoneIndex
+    for (const item of this.sponsorsList) {
+      console.log(`item`, item);
+      phoneIndex = item.contact_officers.findIndex((x: any) => {
+        return x.phone === this.sponsorsOfficersValues.phone
+      })
+      if (phoneIndex !== -1 ) break;
+    }
+
+    console.log(`emailIndex`, emailIndex);
+    console.log(`phoneIndex`, phoneIndex);
+    console.log(`sponsorsOfficersValues`, this.sponsorsOfficersValues);
+
     if (
       !this.sponsorsOfficersValues.contact_officer_name ||
       !this.sponsorsOfficersValues.email ||
       !this.sponsorsOfficersValues.phone
     ) {
       this.toastr.error('تأكد من جميع البيانات المطلوبة')
+      this.officersFormValid = false
+    } else if (emailIndex !== -1) {
+      this.toastr.error('هذا الايميل موجود مسبقا')
+      this.officersFormValid = false
+    } else if (phoneIndex !== -1) {
+      this.toastr.error('هذا الهاتف موجود مسبقا')
       this.officersFormValid = false
     } else if (this.sponsorOfficersFormGroup.invalid) {
       this.toastr.error('هناك خطأ ما,, تأكد من جميع البيانات')
@@ -92,8 +129,30 @@ export class CreateSponsorComponent implements OnInit {
     }
     return this.officersFormValid
   }
+
+  checkIfEmailExist(itemsList: any, valuesList: any): any {
+    itemsList.findIndex((item: any) => {
+      console.log(`item`, item);
+      return item.email == valuesList.email
+    })
+  }
+
+  checkIfPhoneExist(itemsList: any, valuesList: any): any {
+    itemsList.findIndex((item: any) => {
+      console.log(`item`, item);
+      return item.phone == valuesList.phone
+    })
+  }
   
   validateForm() {
+    let emailIndex = this.sponsorsList.findIndex((item: any) => {
+      return item.email == this.sponsorsValues.email
+    })
+    
+    let phoneIndex = this.sponsorsList.findIndex((item: any) => {
+      console.log(`item`, item);
+      return item.phone == this.sponsorsValues.phone
+    })
     if (
       !this.sponsorsValues.sponsor_name ||
       !this.sponsorsValues.sponsor_type ||
@@ -107,6 +166,12 @@ export class CreateSponsorComponent implements OnInit {
       !this.sponsorsValues.time_limit
     ) {
       this.toastr.error('تأكد من جميع البيانات المطلوبة')
+      this.formValid = false
+    } else if (emailIndex !== -1) {
+      this.toastr.error('هذا الايميل موجود مسبقا')
+      this.formValid = false
+    } else if (phoneIndex !== -1) {
+      this.toastr.error('هذا الهاتف موجود مسبقا')
       this.formValid = false
     } else if (this.sponsorFormGroup.invalid) {
       this.toastr.error('هناك خطأ ما,, تأكد من جميع البيانات')

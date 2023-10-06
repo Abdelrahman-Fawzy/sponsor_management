@@ -17,6 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { InputErrorComponent } from './shared/input-error/input-error.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -26,7 +27,8 @@ import { InputErrorComponent } from './shared/input-error/input-error.component'
     SponsorsListComponent,
     CreateSponsorComponent,
     NavbarComponent,
-    InputErrorComponent
+    InputErrorComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

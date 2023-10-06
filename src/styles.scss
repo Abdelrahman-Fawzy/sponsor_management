@@ -11,7 +11,7 @@
 
 body {
     font-family: "Poppins", "Cairo", sans-serif;
-    background: #F2F8FF;
+    background: #f8f8f8;
 }
 
 .sponsors-list {
@@ -19,24 +19,37 @@ body {
         box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
     }
     .p-datatable-table {
-        border-spacing: 0 3px;
+        border-spacing: 0 4px;
+        border: 1px solid #efefef;
         border-collapse: separate;
     }
 
     .p-datatable .p-datatable-thead>tr>th {
-        // border-top: 1px solid #EEF2F7;
-        // border-bottom: 1px solid #EEF2F7;
-        font-weight: 400;
-        color: #374D67;
-        background: #F7F9FC;
-        font-size: 14px;
+        font-weight: bold;
+        color: #3D6683;
+        font-size: 16px;
+        padding: 1em 0.5em;
     }
+
+    .p-datatable .p-sortable-column .p-sortable-column-icon {
+        margin-right: 0.5rem
+    }
+
+    // .p-datatable .p-datatable-tbody>tr:nth-child(even) {
+    //     background: #f9f9f9;
+    // }
 
     .p-datatable .p-datatable-tbody>tr>td {
         padding: 7px;
-        color: #657586;
+        color: #787878;
         font-weight: 400;
+        font-size: 16px;
     }
+}
+
+.active {
+    background: #0D4871;
+    border-left: 10px solid #4797CE;
 }
 
 /* width */

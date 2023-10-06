@@ -1,0 +1,19 @@
+.layout {
+    position: relative;
+    height: 114vh;
+}
+
+.outlet {
+    width: calc(100% - 250px);
+    position: absolute;
+    top: 0;
+    left: 250px;
+    background: #F8F8F8;
+    // background: #F2F8FF;
+    .header {
+        background-color: #fff;
+        padding: 1em;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+        p { margin: 0; }
+    }
+}

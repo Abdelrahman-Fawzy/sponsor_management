@@ -4,16 +4,16 @@
         <h3 class="title">All Sponsors</h3>
         <button class="primary-button" routerLink="/create">+ Add Sponsor</button>
     </div>
-    <p-table [value]="sponsorsList.data" dataKey="sponsor_name" [tableStyle]="{ 'min-width': '200rem' }">
+    <p-table [value]="sponsorsList.data" (sortFunction)="customSort($event)" [customSort]="true" dataKey="sponsor_name" [tableStyle]="{ 'min-width': '200rem' }">
         <ng-template pTemplate="header">
             <tr>
                 <th style="width: 5rem"></th>
                 <th>Id</th>
                 <th>Sponsor Code</th>
-                <th>Sponsor Name</th>
-                <th>Sponsor Type</th>
+                <th pSortableColumn="name"><p-sortIcon field="name"></p-sortIcon> Sponsor Name</th>
+                <th pSortableColumn="type"><p-sortIcon field="type"></p-sortIcon>Sponsor Type</th>
                 <th>Sponsor ID</th>
-                <th>Address</th>
+                <th pSortableColumn="address"><p-sortIcon field="address"></p-sortIcon> Address</th>
                 <th>Postal Code</th>
                 <th>Phone</th>
                 <th>Email</th>
