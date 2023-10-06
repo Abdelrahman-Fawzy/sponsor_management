@@ -74,3 +74,24 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #005fe3;
 }
+
+@media (max-width: 767px) {
+    .sidebar {
+        // display: none !important;
+        width: 60px !important;
+    }
+    .layout {
+        min-height: 195vh;
+    }
+    .outlet {
+        width: calc(100% - 60px) !important;
+        left: 60px !important;
+        .sponsors-list, .create-sponser {
+            padding: 1em !important;
+        }
+    }
+
+    .outlet > .header {
+        padding: 1.6em !important;
+    }
+}

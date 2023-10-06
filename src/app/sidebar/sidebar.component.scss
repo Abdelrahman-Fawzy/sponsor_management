@@ -13,6 +13,16 @@
     .header {
         padding: 1em;
         background: #4797CE;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        span {
+            font-size: 14px;
+        }
     }
     ul {
         padding: 1em 0;
@@ -25,6 +35,13 @@
                 display: block;
                 color: #FFF;
                 text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
             }
         }
     }
